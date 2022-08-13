@@ -50,13 +50,13 @@ def send_telegram_msg_via_ifttt():
     requests.get(f"https://maker.ifttt.com/trigger/iss_overhead/json/with/key/{ifttt_key}")
 
 
-def run_each_hour():
+def run_each_5min():
     if is_iss_overhead() and is_night():
         send_mail()
         send_telegram_msg_via_ifttt()
 
     time.sleep(300)  # Run Each 5 Minute
-    run_each_hour()
+    run_each_5min()
 
 
-run_each_hour()
+run_each_5min()
